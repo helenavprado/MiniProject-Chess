@@ -17,4 +17,21 @@ public class Rook extends Piece {
     /*
     TODO: override isValidMove().
      */
+
+    @Override
+    public boolean isValidMove(Position newPosition, Piece[][] board) {
+        if (!super.isValidMove(newPosition, board)) {
+            return false;
+        }
+
+        if (Math.abs(curPos.getCol() - newPosition.getCol()) <= 7 &&
+                Math.abs(curPos.getRow() - newPosition.getRow()) == 0){
+            return true;
+        } else if (Math.abs(curPos.getRow() - newPosition.getRow()) <= 7 &&
+                Math.abs(curPos.getCol() - newPosition.getCol()) == 0) {
+            return true;
+
+        }
+        return false;
+    }
 }

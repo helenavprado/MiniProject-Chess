@@ -9,7 +9,7 @@ public class King extends Piece {
         super(isWhite, IMPORTANCE);
     }
 
-    @Override
+    @java.lang.Override
     public String toString() {
         return "King{value='" + getValue() + "'}";
     }
@@ -17,4 +17,18 @@ public class King extends Piece {
     /*
     TODO: override isValidMove().
      */
+
+    @Override
+    public boolean isValidMove(Position newPosition, Piece[][] board) {
+        if (!super.isValidMove(newPosition, board)){
+            return false;
+        }
+
+        if (Math.abs(curPos.getCol() - newPosition.getCol()) <= 1 &&
+            Math.abs(curPos.getRow() - newPosition.getRow()) <= 1){
+            return true;
+        }
+
+        return false;
+    }
 }

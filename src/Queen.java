@@ -17,4 +17,13 @@ public class Queen extends Piece {
     /*
     TODO: override isValidMove().
      */
+
+    @Override
+    public boolean isValidMove(Position newPosition, Piece[][] board) {
+        if (!super.isValidMove(newPosition, board)) {
+            return false;
+        }
+
+        return true;
+    }
 }
